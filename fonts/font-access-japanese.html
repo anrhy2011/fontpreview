@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>本機日文字型清單</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; }
+    .font-name { margin-bottom: .5em; }
+    #fontList { margin-top: 2em; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>本機日文字型清單（僅顯示日文關鍵字）</h1>
+  <button id="loadFonts">讀取本機日文字型</button>
+  <div id="fontList"></div>
+  <div class="error" id="error"></div>
+  <script>
+    const japaneseKeywords = [
+      // 常見日文字型關鍵字，可自行擴充
+      'ゴシック', '明朝', '丸ゴ', 'ヒラギノ', 'モトヤ', 'リュウミン', '教科書体', 'UD', '游ゴシック', '游明朝', '新丸ゴ', '新ゴ', 'マティス', '筑紫'
+    ];
+
+    document.getElementById('loadFonts').onclick = async function() {
+      const list = document.getElementById('fontList');
+      const error = document.getElementById('error');
+      list.innerHTML = '';
+      error.textContent = '';
+      if (!('queryLocalFonts' in window)) {
+        error.textContent = '這個瀏覽器不支援 Font Access API，請用最新版 Chrome/Edge 開啟本網頁。';
+        return;
+      }
+      try {
+        const fonts = await window.queryLocalFonts();
+        const jpFonts = fonts.filter(font =>
+          japaneseKeywords.some(keyword => font.fullName.includes(keyword))
+        );
+        if (jpFonts.length === 0) {
+          list.innerHTML = '找不到日文字型，請檢查你的電腦是否有安裝日文字型。';
+        } else {
+          list.innerHTML = jpFonts.map(f => `<div class="font-name">${f.fullName}</div>`).join('');
+        }
+      } catch(e) {
+        error.textContent = '必須授權才能讀取本機字型。請重新點擊按鈕並允許權限。';
+      }
+    };
+  </script>
+</body>
+</html>
