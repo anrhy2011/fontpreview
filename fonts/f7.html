@@ -26,7 +26,7 @@
         .app-container {
             display: flex;
             width: 100%;
-            margin: 20px auto; /* 外部留白並置中 */
+            margin: 10px auto; /* 外部留白並置中 */
             background-color: #fff;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -35,7 +35,7 @@
 
         /* 左側邊欄 */
         .sidebar {
-            width: 280px;
+            width: 170px;
             padding: 30px 20px;
             background-color: #f0f4f8;
             border-right: 1px solid #e2e8f0;
@@ -103,7 +103,7 @@
         /* 右側主內容區 */
         .main-content {
             flex-grow: 1; /* 佔據剩餘空間 */
-            padding: 30px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
             gap: 25px; /* 調整區與字體預覽區間距 */
@@ -228,7 +228,7 @@
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            padding: 15px 20px; /* 調整內邊距：上下15px，左右20px */
+            padding: 5px 15px; /* 調整內邊距：上下5px，左右15px */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -378,20 +378,20 @@
             <h2>分類篩選</h2>
             <div class="sidebar-section">
                 <!-- 特殊分類篩選 (我的最愛、隱藏、已刪除) -->
-                <label><input type="checkbox" class="category-filter special-filter" value="favorite" checked> 我的最愛字型</label>
-                <label><input type="checkbox" class="category-filter special-filter" value="hidden" checked> 隱藏的字型</label>
-                <label><input type="checkbox" class="category-filter special-filter" value="deleted" checked> 已刪除的字型</label>
+                <label><input type="checkbox" class="category-filter special-filter" value="favorite" > 我的最愛字型</label>
+                <label><input type="checkbox" class="category-filter special-filter" value="hidden" > 隱藏的字型</label>
+                <label><input type="checkbox" class="category-filter special-filter" value="deleted" > 已刪除的字型</label>
                 
-                <h3 style="margin-top: 15px; margin-bottom: 5px; font-size: 1.1em; color: #444;">線上網頁字型</h3>
-                <label><input type="checkbox" class="category-filter" value="ja-web" checked> 日文 (網頁)</label>
-                <label><input type="checkbox" class="category-filter" value="en-web" checked> 英文及其他 (網頁)</label>
+                <h3 style="margin-top: 15px; margin-bottom: 5px; font-size: 1.1em; color: #444;">線上字型</h3>
+                <label><input type="checkbox" class="category-filter" value="ja-web" checked> 日文字型</label>
+                <label><input type="checkbox" class="category-filter" value="en-web" checked> 英文及其他字型</label>
 
-                <h3 style="margin-top: 15px; margin-bottom: 5px; font-size: 1.1em; color: #444;">本地電腦字型</h3>
-                <label><input type="checkbox" class="category-filter" value="zh-tw-local" checked> 繁體中文 (本地)</label>
-                <label><input type="checkbox" class="category-filter" value="ja-local" checked> 日文 (本地)</label>
+                <h3 style="margin-top: 15px; margin-bottom: 5px; font-size: 1.1em; color: #444;">電腦字型</h3>
+                <label><input type="checkbox" class="category-filter" value="zh-tw-local" > 繁體中文字型</label>
+                <label><input type="checkbox" class="category-filter" value="ja-local" > 日文字型</label>
             </div>
 
-            <button class="sidebar-button reset" id="resetSettingsBtn">初始化網頁設定</button>
+            <button class="sidebar-button reset" id="resetSettingsBtn">初始化設定</button>
         </div>
 
         <!-- 右側主內容區 -->
@@ -427,9 +427,9 @@
                     </div>
 
                     <div class="align-group">
-                        <button class="align-button active" id="alignLeft" data-align="left">左對齊</button>
+                        <button class="align-button active" id="alignLeft" data-align="left">置左</button>
                         <button class="align-button" id="alignCenter" data-align="center">置中</button>
-                        <button class="align-button" id="alignRight" data-align="right">右對齊</button>
+                        <button class="align-button" id="alignRight" data-align="right">置右</button>
                     </div>
                 </div>
             </div>
@@ -535,6 +535,53 @@
                 fontWeight: 'normal',
                 fontStyle: 'normal'
             },
+            {
+                id: '27-ninaschoolgirl-regular',
+                name: '27_ninaSchoolgirl',
+                category: 'ja-web',
+                type: 'custom',
+                fullUrls: {
+                    // 相對路徑
+                    woff2: '27-ninaschoolgirl-regular-webfont.woff2', 
+                },
+                fontWeight: 'normal',
+                fontStyle: 'normal'
+            },
+            {
+                id: 'bansyu-retoromin-r_ver.3.2',
+                name: '晩秋レトロミン ver.3.2',
+                category: 'ja-web',
+                type: 'custom',
+                fullUrls: {
+                    // 相對路徑
+                    woff2: 'bansyu-retoromin-r_ver.3.2-webfont.woff2', 
+                },
+                fontWeight: 'normal',
+                fontStyle: 'normal'
+            },
+            {
+                id: 'kaiseitokumin-regular',
+                name: '紙モノゴシック モダン',
+                category: 'ja-web',
+                type: 'custom',
+                fullUrls: {
+                    // 相對路徑
+                    woff2: 'kamimonogothic-modern-b_ver.1.0-webfont.woff2', 
+                },
+                fontWeight: 'normal',
+                fontStyle: 'normal'
+            },
+
+
+
+
+
+
+
+
+
+
+
             // 線上英文字型範例
             {
                 id: 'new-y2k-regular',
@@ -554,8 +601,8 @@
         const baseLocalFonts = [
             { id: 'local-851mkpop', name: '851MkPOP', category: 'ja-local', type: 'local' },
             { id: 'local-aoyagireisyo2', name: 'aoyagireisyo2', category: 'ja-local', type: 'local' },
-            { id: 'local-biz-udgothic', name: 'BIZ UDGothic', category: 'ja-local', type: 'local' },
-            { id: 'local-biz-udmincho', name: 'BIZ UDMIncho', category: 'ja-local', type: 'local' },
+            { id: 'local-biz-udgothic', name: 'BIZUDGothic-Regular', category: 'ja-local', type: 'local' },
+            { id: 'local-biz-udmincho', name: 'BIZUDMincho-Regular', category: 'ja-local', type: 'local' },
             { id: 'local-genei-latemin-v2', name: 'GenEi LateMin v2', category: 'ja-local', type: 'local' },
             { id: 'local-hiragino-maru-gothic-pron', name: 'Hiragino Maru Gothic ProN', category: 'ja-local', type: 'local' },
             { id: 'local-hiragino-mincho-pron', name: 'Hiragino Mincho ProN', category: 'ja-local', type: 'local' },
@@ -582,16 +629,15 @@
             { id: 'local-yumincho-36p-kana', name: 'YuMincho +36p Kana', category: 'ja-local', type: 'local' },
             // 新增的本地繁體中文字型 (根據圖片提供)
             { id: 'local-source-han-sans-tw', name: '思源黑體 TW', category: 'zh-tw-local', type: 'local' },
-            { id: 'local-hwa-kang-new-go-font', name: '華康新特明體', category: 'zh-tw-local', type: 'local' },
             { id: 'local-hwa-kang-new-go-font-p', name: '華康新特明體(P)', category: 'zh-tw-local', type: 'local' },
-            { id: 'local-hwa-kang-fang-song-w5', name: '華康節藝體W5', category: 'zh-tw-local', type: 'local' },
+            { id: 'local-hwa-kang-fang-song-w5', name: 'DFShiYi-W5-WIN-BF', category: 'zh-tw-local', type: 'local' },
         ];
         
         // 合併所有字型，這是用於渲染的基礎列表
         let currentAllFonts = [...baseWebFonts, ...baseLocalFonts]; 
 
         // --- 狀態變數 ---
-        let currentText = "請輸入文字來預覽效果";
+        let currentText = "輸入預覽文字 您好嗎 あいうアイウ ABCabc";
         let currentFontSize = parseInt(fontSizeInput.value);
         let currentLetterSpacing = parseFloat(letterSpacingInput.value);
         let currentLineHeight = parseFloat(lineHeightInput.value);
@@ -921,7 +967,7 @@
             deletedFontIds = [];
 
             // 重置 UI 狀態
-            inputText.value = "請輸入文字來預覽效果";
+            inputText.value = "輸入預覽文字 您好嗎 あいうアイウ ABCabc";
             fontSizeInput.value = 48;
             letterSpacingInput.value = 0;
             lineHeightInput.value = 1.2;
@@ -929,7 +975,7 @@
             italicToggleBtn.classList.remove('active');
             alignButtons.forEach(btn => btn.classList.remove('active'));
             document.getElementById('alignLeft').classList.add('active'); // 預設左對齊
-            currentText = "請輸入文字來預覽效果";
+            currentText = "輸入預覽文字 您好嗎 あいうアイウ ABCabc";
             currentFontSize = 48;
             currentLetterSpacing = 0;
             currentLineHeight = 1.2;
@@ -977,7 +1023,7 @@
             currentText = inputText.value;
             // 如果輸入框為空，顯示預設文字
             if (currentText.trim() === '') {
-                currentText = "請輸入文字來預覽效果";
+                currentText = "輸入預覽文字 您好嗎 あいうアイウ ABCabc";
             }
             document.querySelectorAll('.font-preview-text').forEach(el => {
                 el.textContent = currentText;
